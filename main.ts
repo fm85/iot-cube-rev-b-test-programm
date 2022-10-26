@@ -1,12 +1,12 @@
-function testRAKDevEUI() {
+function testRAKDevEUI () {
     messwert = DevEUI.length
     logTestStep(16, 16, messwert, "length Dev EUI okay (RAK Micro:Bit) comunication)")
 }
-function test_J1_J2_3V3() {
+function test_J1_J2_3V3 () {
     driveAndReadAnalog(DigitalPin.P0, AnalogPin.P1)
-    driveAndReadDigital(DigitalPin.P14, DigitalPin.P15)
+driveAndReadDigital(DigitalPin.P14, DigitalPin.P15)
 }
-function logTestStep(min: number, max: number, measuredValue: number, testName: string) {
+function logTestStep (min: number, max: number, measuredValue: number, testName: string) {
     errorCount = 0
     if (measuredValue < min) {
         errorCount += 1
@@ -15,12 +15,12 @@ function logTestStep(min: number, max: number, measuredValue: number, testName: 
         errorCount += 1
     }
     datalogger.log(
-        datalogger.createCV("DevEUI", DevEUI),
-        datalogger.createCV("Testschritt", testName),
-        datalogger.createCV("Min", min),
-        datalogger.createCV("Max", max),
-        datalogger.createCV("Messwert", measuredValue),
-        datalogger.createCV("Anzahl Fehler", errorCount)
+    datalogger.createCV("DevEUI", DevEUI),
+    datalogger.createCV("Testschritt", testName),
+    datalogger.createCV("Min", min),
+    datalogger.createCV("Max", max),
+    datalogger.createCV("Messwert", measuredValue),
+    datalogger.createCV("Anzahl Fehler", errorCount)
     )
     if (errorCount > 0) {
         music.playTone(165, music.beat(BeatFraction.Half))
@@ -54,12 +54,12 @@ function driveAndReadDigital(drivePin: DigitalPin, readPin: DigitalPin) {
 datalogger.deleteLog(datalogger.DeleteType.Full)
 datalogger.includeTimestamp(FlashLogTimeStampFormat.Seconds)
 datalogger.setColumnTitles(
-    "DevEUI",
-    "Testschritt",
-    "Min",
-    "Max",
-    "Messwert",
-    "Anzahl Fehler"
+"DevEUI",
+"Testschritt",
+"Min",
+"Max",
+"Messwert",
+"Anzahl Fehler"
 )
 DevEUI = IoTCube.getParameter(eRUI3_PARAM.DEVEUI)
 testRAKDevEUI()
