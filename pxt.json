@@ -4,7 +4,9 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "LoRa-AT-Interface": "github:paeber/lora-at-interface#4c95720e1f77c2c19f36bd84b01efb2be7b0ce23",
+        "datalogger": "*"
     },
     "files": [
         "main.blocks",
@@ -21,5 +23,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
